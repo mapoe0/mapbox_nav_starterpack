@@ -1,16 +1,39 @@
-# mapbox_turn_by_turn
+# mapbox_nav_starterpack
 
-A new Flutter project.
+A complete starter pack for mapbox:
+-polyline
+-sreach
+-calculate of time travel + km
+-navigation
 
 ## Getting Started
+How to use it ?
 
-This project is a starting point for a Flutter application.
+Etape 1 git clone
 
-A few resources to get you started if this is your first Flutter project:
+Etape 2 https://www.mapbox.com/
+	- créer un compte
+	- Creer un token -> cocher DOWNLOAD:REAd
+	- Récuperer les TOKENS "Default public token" & "SECRET TOKEN"
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Etape 3 Aller dans: assets/config/-env -> rentrer le PUBLIC TOKEN
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Etape 4 Settings Android:
+	- android/gradle.properties: MAPBOX_DOWNLOADS_TOKEN = SECRET TOKEN
+	- android\app\src\main\res\values\strings.xml : <string name="mapbox_access_token" translatable="false">PUBLIC TOKEN</string>
+  
+Etape 5 Setting IOS:
+	- <key>MGLMapboxAccessToken</key> remplacer le string par PUBLIC TOKEN
+	- En dessous de </plist>: machine api.mapbox.com
+						login mapbox
+						password SECRET TOKEN
+            
+Etape 6: flutter app settings:
+  - List of things to do for customize the projet: 
+  - package + app rename: https://pub.dev/packages/rename + need to make a sreach into the android folder wwith the previus package name and change it to the new one
+  - splash: https://pub.dev/packages/flutter_native_splash
+  - icon: https://pub.dev/packages/flutter_launcher_icons
+  - don't forget to use flutter clean     &&    flutter pub get     before lauching the projet on device
+
+
+
