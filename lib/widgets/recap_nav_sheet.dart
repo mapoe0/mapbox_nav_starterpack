@@ -42,7 +42,7 @@ Widget recapNavSheet(
                 ),
                 ElevatedButton(
                     onPressed: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const TurnByTurn())),
+                        MaterialPageRoute(builder: (_) => const Navigation())),
                     style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(20)),
                     child: Row(
