@@ -3,14 +3,14 @@ import 'package:flutter_mapbox_navigation/library.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:mapbox_starter_pack/helpers/shared_prefs.dart';
 
-class TurnByTurn extends StatefulWidget {
-  const TurnByTurn({Key? key}) : super(key: key);
+class Navigation extends StatefulWidget {
+  const Navigation({Key? key}) : super(key: key);
 
   @override
-  State<TurnByTurn> createState() => _TurnByTurnState();
+  State<Navigation> createState() => _NavigationState();
 }
 
-class _TurnByTurnState extends State<TurnByTurn> {
+class _NavigationState extends State<Navigation> {
   // Waypoints to mark trip start and end
   LatLng source = getTripLatLngFromSharedPrefs('source');
   LatLng destination = getTripLatLngFromSharedPrefs('destination');
@@ -40,6 +40,7 @@ class _TurnByTurnState extends State<TurnByTurn> {
     if (!mounted) return;
 
     _controller = MapBoxNavigationViewController(1, _onRouteEvent);
+    _controller.initialize();
     directions = MapBoxNavigation(onRouteEvent: _onRouteEvent);
     _options = MapBoxOptions(
         zoom: 18.0,
@@ -49,8 +50,9 @@ class _TurnByTurnState extends State<TurnByTurn> {
         isOptimized: true,
         units: VoiceUnits.metric,
         simulateRoute: false, // mettre sur faux sinon ça bouge tout seul
-        language: 'en');
+        language: 'fr');
     // Configure waypoints
+    // for adding a step to your trip, you need to add a waypoint between source and destination
     sourceWaypoint = WayPoint(
         name: "Source", latitude: source.latitude, longitude: source.longitude);
     destinationWaypoint = WayPoint(
@@ -104,6 +106,7 @@ class _TurnByTurnState extends State<TurnByTurn> {
         routeBuilt = false;
         isNavigating = false;
         break;
+
       default:
         break;
     }
