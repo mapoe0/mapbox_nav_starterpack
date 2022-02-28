@@ -13,18 +13,6 @@ Widget sreachBarWidget(TextEditingController sourceController,
       padding: const EdgeInsets.all(15),
       child: Row(
         children: [
-          Column(
-            children: [
-              const Icon(Icons.brightness_1, size: 8),
-              Container(
-                margin: const EdgeInsets.only(top: 3),
-                color: Colors.black,
-                width: 1,
-                height: 40,
-              ),
-              const Icon(Icons.stop, size: 12),
-            ],
-          ),
           Expanded(
             child: Column(
               children: [

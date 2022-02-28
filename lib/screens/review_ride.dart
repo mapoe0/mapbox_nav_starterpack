@@ -104,7 +104,7 @@ class _ReviewRideState extends State<ReviewRide> {
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.arrow_back)),
-        title: const Text('Review Ride'),
+        title: const Text('Revue du trajet'),
       ),
       body: SafeArea(
         child: Stack(
@@ -113,11 +113,13 @@ class _ReviewRideState extends State<ReviewRide> {
               height: MediaQuery.of(context).size.height,
               child: MapboxMap(
                 accessToken: dotenv.env['MAPBOX_ACCESS_TOKEN'],
+                myLocationEnabled: true,
+
                 initialCameraPosition: _initialCameraPosition,
                 onMapCreated: _onMapCreated,
                 onStyleLoadedCallback: _onStyleLoadedCallback, // à creuser
                 myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-                minMaxZoomPreference: const MinMaxZoomPreference(11, 11),
+                minMaxZoomPreference: const MinMaxZoomPreference(14, 18),
               ),
             ),
             recapNavSheet(context, distance, dropOffTime),

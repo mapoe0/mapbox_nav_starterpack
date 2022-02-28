@@ -19,5 +19,5 @@ Widget GoToRideBtn(BuildContext context) {
                 builder: (_) =>
                     ReviewRide(modifiedResponse: modifiedResponse)));
       },
-      label: const Text('Review Ride'));
+      label: const Text('C\'est partis !'));
 }

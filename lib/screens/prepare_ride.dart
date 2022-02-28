@@ -21,8 +21,8 @@ class _PrepareRideState extends State<PrepareRide> {
   bool hasResponded = false;
   bool isResponseForDestination = false;
 
-  String noRequest = 'Type to sreach a location';
-  String noResponse = 'No results found for the search';
+  String noRequest = 'Taper pour chercher un résultat';
+  String noResponse = 'Aucun Résultat';
 
   List responses = [];
   TextEditingController sourceController = TextEditingController();
@@ -63,7 +63,7 @@ class _PrepareRideState extends State<PrepareRide> {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
         title: const Text(
-          "Sreach Page",
+          "Recherche un itinéraire",
           textAlign: TextAlign.center,
         ),
       ),

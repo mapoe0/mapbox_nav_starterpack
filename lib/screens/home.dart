@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text('Open Sreach page'),
+                            Text('Rechercher un trajet'),
                           ],
                         ),
                       ),

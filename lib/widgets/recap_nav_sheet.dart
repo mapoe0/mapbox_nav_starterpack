@@ -35,7 +35,7 @@ Widget recapNavSheet(
                       color: Colors.black,
                     ),
                     title: Text(
-                      '$distance km, $dropOffTime drop off',
+                      '$distance km, $dropOffTime',
                       style: const TextStyle(fontSize: 18, color: Colors.black),
                     ),
                   ),
@@ -48,7 +48,7 @@ Widget recapNavSheet(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text('Start navigation'),
+                          Text('Commencer'),
                         ])),
               ]),
         ),

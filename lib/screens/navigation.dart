@@ -11,22 +11,22 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  // Waypoints to mark trip start and end
   LatLng source = getTripLatLngFromSharedPrefs('source');
   LatLng destination = getTripLatLngFromSharedPrefs('destination');
   late WayPoint sourceWaypoint, destinationWaypoint;
   var wayPoints = <WayPoint>[];
+
   // Config variables for Mapbox Navigation
   late MapBoxNavigation directions;
   late MapBoxOptions _options;
   late double distanceRemaining, durationRemaining;
   late MapBoxNavigationViewController _controller;
-
   final bool isMultipleStop = false;
   String instruction = "";
   bool arrived = false;
   bool routeBuilt = false;
   bool isNavigating = false;
+
   @override
   void initState() {
     super.initState();
@@ -37,22 +37,19 @@ class _NavigationState extends State<Navigation> {
     if (!mounted) return;
 
     // Setup directions and options
-    if (!mounted) return;
-
     _controller = MapBoxNavigationViewController(1, _onRouteEvent);
-    _controller.initialize();
     directions = MapBoxNavigation(onRouteEvent: _onRouteEvent);
     _options = MapBoxOptions(
         zoom: 18.0,
         voiceInstructionsEnabled: true,
         bannerInstructionsEnabled: true,
-        mode: MapBoxNavigationMode.cycling,
+        mode: MapBoxNavigationMode.drivingWithTraffic,
         isOptimized: true,
         units: VoiceUnits.metric,
-        simulateRoute: false, // mettre sur faux sinon ça bouge tout seul
-        language: 'fr');
+        simulateRoute: true,
+        language: "fr");
+
     // Configure waypoints
-    // for adding a step to your trip, you need to add a waypoint between source and destination
     sourceWaypoint = WayPoint(
         name: "Source", latitude: source.latitude, longitude: source.longitude);
     destinationWaypoint = WayPoint(
@@ -64,7 +61,6 @@ class _NavigationState extends State<Navigation> {
 
     // Start the trip
     await directions.startNavigation(wayPoints: wayPoints, options: _options);
-    //await directions.finishNavigation();
   }
 
   @override
@@ -106,7 +102,6 @@ class _NavigationState extends State<Navigation> {
         routeBuilt = false;
         isNavigating = false;
         break;
-
       default:
         break;
     }

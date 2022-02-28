@@ -9,26 +9,26 @@ A complete starter pack for mapbox:
 ## Getting Started
 How to use it ?
 
-Etape 1 git clone
+Step 1 git clone
 
-Etape 2 https://www.mapbox.com/
-	- créer un compte
-	- Creer un token -> cocher DOWNLOAD:REAd
-	- Récuperer les TOKENS "Default public token" & "SECRET TOKEN"
+Step 2 https://www.mapbox.com/
+	- create account
+	- create token -> check DOWNLOAD:READ
+	- copie the tokens: "Default public token" & "SECRET TOKEN"
 
-Etape 3 Aller dans: assets/config/-env -> rentrer le PUBLIC TOKEN
+Step 3 In your flutter projet: assets/config/-env -> paste your PUBLIC TOKEN
 
-Etape 4 Settings Android:
+Step 4 Settings Android:
 	- android/gradle.properties: MAPBOX_DOWNLOADS_TOKEN = SECRET TOKEN
 	- android\app\src\main\res\values\strings.xml : <string name="mapbox_access_token" translatable="false">PUBLIC TOKEN</string>
   
-Etape 5 Setting IOS:
-	- <key>MGLMapboxAccessToken</key> remplacer le string par PUBLIC TOKEN
+Step 5 Setting IOS:
+	- <key>MGLMapboxAccessToken</key> replace the string by PUBLIC TOKEN
 	- En dessous de </plist>: machine api.mapbox.com
 						login mapbox
 						password SECRET TOKEN
             
-Etape 6: flutter app settings:
+Step 6: flutter app settings:
   - List of things to do for customize the projet: 
   - package + app rename: https://pub.dev/packages/rename + need to make a sreach into the android folder wwith the previus package name and change it to the new one
   - splash: https://pub.dev/packages/flutter_native_splash

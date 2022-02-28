@@ -67,7 +67,7 @@ class _SreachLocationFieldSate extends State<SreachLocationField> {
 
   @override
   Widget build(BuildContext context) {
-    String placeholderText = widget.isDestination ? 'Where to?' : 'Where from?';
+    String placeholderText = widget.isDestination ? 'Arrivée ?' : 'Départ ?';
     IconData? iconData = !widget.isDestination ? Icons.my_location : null;
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
